@@ -12,12 +12,16 @@
             color: white;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
         }
 
         nav {
             background-color: #333;
             padding: 10px 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav .nav-item {
@@ -44,7 +48,8 @@
             margin: 20px 0;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             text-align: center;
             color: white;
         }
@@ -97,8 +102,8 @@
         <li class="nav-item">
             <a class="nav-link" href="#publications">Publications</a>
         </li>
-        <li class="nav-item" style="text-align:center">
-            <a class="nav-link" href="#service">Termite Identification<br>Service</a>
+        <li class="nav-item">
+            <a class="nav-link" href="#service">Termite Identification Service</a>
         </li>
     </nav>
 
@@ -116,8 +121,7 @@
                     <strong>Contact</strong><br>
                     Phone Number: <br>
                     E-mail: <a href="mailto:tim77918@msn.com">tim77918@msn.com</a><br>
-                    ResearchGate: <a href="https://www.researchgate.net/profile/Chun-I-Chiu"
-                        target="_blank">https://www.researchgate.net/profile/Chun-I-Chiu</a><br><br>
+                    ResearchGate: <a href="https://www.researchgate.net/profile/Chun-I-Chiu" target="_blank">https://www.researchgate.net/profile/Chun-I-Chiu</a><br><br>
 
                     <strong>Educational Background</strong><br>
                     Ph.D., National Chung Hsing University, Department of Entomology, 2014 – 2018.<br>
@@ -176,23 +180,14 @@
             <tr>
                 <td>2. Lin, W.-J., et al. 2021. Damage and reinvasion of Asian subterranean termite on trees. <b>Journal of Experimental Forest</b> 35: 49-60. (In Chinese)</td>
             </tr>
-            <!-- Add more articles as necessary -->
         </table>
     </section>
 
     <hr>
 
-    <section>
-        <h2>Oral and Poster Presentations at Professional Meetings</h2>
-        <table>
-            <tr>
-                <td>1. Chiu, C.-I., et al. 2021. Application of hexaflumuron termite bait in controlling fungus-growing termites. <b>42th Annual Meeting of Taiwan Entomological Society</b>.</td>
-            </tr>
-            <tr>
-                <td>2. Chiu, C.-I., et al. 2020. Termite salinity tolerance and potential for transoceanic dispersal through rafting. <b>41th Annual Meeting of Taiwan Entomological Society</b>.</td>
-            </tr>
-            <!-- Add more presentations as necessary -->
-        </table>
+    <section id="service">
+        <h2>Termite Identification Service</h2>
+        <p style="text-align:center;">Contact us for termite identification services.</p>
     </section>
 </body>
 
