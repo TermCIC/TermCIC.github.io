@@ -5,216 +5,681 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Chun-I Chiu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
-            color: white;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth; /* Enables smooth scrolling */
+            scroll-behavior: smooth;
         }
 
         nav {
-            background-color: #333;
-            padding: 10px 0;
-            text-align: center;
+            background: linear-gradient(90deg, green, #004d00);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        nav .nav-item {
-            display: inline-block;
-            margin: 0 15px;
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
         }
 
-        nav .nav-link {
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
             color: white;
             text-decoration: none;
+            font-weight: 500;
             font-size: 16px;
+            transition: color 0.3s ease;
         }
 
-        nav .nav-link:hover {
-            text-decoration: underline;
+        nav a:hover {
+            color: #ffdd57;
         }
 
-        nav .nav-item.active .nav-link {
-            font-weight: bold;
-        }
-
-        hr {
-            border: 1px solid #444;
-            margin: 20px 0;
+        header,
+        section {
+            padding: 40px 20px;
         }
 
         h1,
         h2 {
             text-align: center;
-            color: white;
+            margin-bottom: 20px;
+            color: #004d00;
         }
 
-        .center {
-            display: block;
-            margin: 20px auto;
-        }
-
-        table {
-            margin: 20px auto;
-            font-weight: normal;
-            text-align: left;
-            color: white;
-            width: 90%;
-            border-collapse: collapse;
-        }
-
-        td {
-            padding: 10px;
-        }
-
-        a {
-            color: #00bfff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        p {
+            line-height: 1.6;
         }
 
         img {
-            display: block;
-            margin: 10px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #004d00;
+            color: white;
+            font-weight: 500;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-card a {
+            text-decoration: none;
+            color: #004d00;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .tool-card p {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ffdd57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #about img {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #004d00;
+        }
+
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 
 <body>
     <nav>
-        <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#about">About Me</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#projects">Research Projects</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#publications">Publications</a>
-        </li>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Research Projects</a></li>
+            <li><a href="#tools-section">Web Tools</a></li>
+            <li><a href="#publications">Publications</a></li>
+        </ul>
     </nav>
 
-    <hr>
+    <header id="home">
+        <h1>Welcome to Dr. Chun-I Chiu's Page</h1>
+        <p style="text-align: center;">Explore my research, tools, and publications.</p>
+    </header>
 
-    <section id="about">
-        <h1>Dr. Chun-I Chiu</h1>
-        <p style="text-align:center;">
-            <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/DrChiu.JPG" alt="Dr. Chun-I Chiu"
-                width="300" class="center">
-        </p>
-        <table>
-            <tr>
-                <td>
-                    <strong>Contact</strong><br>
-                    Phone Number: <br>
-                    E-mail: <a href="mailto:tim77918@msn.com">tim77918@msn.com</a><br>
-                    ResearchGate: <a href="https://www.researchgate.net/profile/Chun-I-Chiu" target="_blank">https://www.researchgate.net/profile/Chun-I-Chiu</a><br><br>
-
-                    <strong>Educational Background</strong><br>
-                    Ph.D., National Chung Hsing University, Department of Entomology, 2014 – 2018.<br>
-                    M.Sc., National Chung Hsing University, Department of Entomology, 2011 – 2014.<br>
-                    B.S., National Chung Hsing University, Department of Entomology, 2007 – 2011.<br><br>
-
-                    <strong>Research Interests</strong><br>
-                    Integrated pest management of termites <br>
-                    Nutrition and population ecology of insects<br>
-                    Insect-fungi symbiont system<br><br>
-
-                    <strong>Skills</strong><br>
-                    Biostatistics<br>
-                    Linear and non-linear modeling<br>
-                    Multivariate analysis<br>
-                    R programming language<br>
-                    Python programming language<br>
-                    C programming language<br>
-                </td>
-            </tr>
-        </table>
-    </section>
-
-    <hr>
-
-    <section id="projects">
-        <h2>Household Termites: Diversity and Distribution</h2>
-        <p style="text-align:center">
-            <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/NeotermesIndex_1.jpg"
-                alt="Household Termites" width="300">
-            <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/CoptotermesIndex_2.jpg"
-                alt="Household Termites" width="300">
-        </p>
-        <h2>Insect-Fungi Symbiont System</h2>
-        <p style="text-align:center">
-            <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/Spores1.jpg"
-                alt="Insect-Fungi Symbiont System" height="400">
-            <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/Spores2.jpg"
-                alt="Insect-Fungi Symbiont System" height="400">
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div style="text-align: center;">
+            <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/DrChiu.JPG"
+                alt="Dr. Chun-I Chiu" style="width: 200px; height: auto;">
+        </div>
+        <p>
+            I am Dr. Chun-I Chiu, an entomologist with a passion for research in pest management, insect nutrition, and
+            the symbiotic relationships between insects and fungi. My work spans biostatistics, ecological modeling, and
+            advanced programming in R, Python, and C.
         </p>
     </section>
 
-    <hr>
+    <section id="projects" class="container">
+        <h2>Research Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Household Termites</h3>
+                <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/NeotermesIndex_1.jpg"
+                    alt="Termites">
+            </div>
+            <div class="project-card">
+                <h3>Insect-Fungi Symbiont System</h3>
+                <img src="https://raw.githubusercontent.com/TermCIC/termitechiu-website/main/Spores1.jpg" alt="Fungi">
+            </div>
+        </div>
+    </section>
 
-    <section id="publications">
-        <h2>Journal Articles</h2>
+
+    <section id="tools-section" class="container">
+        <h2>Web Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <a href="https://termcic.github.io/diversity_index/sample_farm.html" target="_blank">Farm Sampling
+                    Tool</a>
+                <p>Simulate sampling for insect diversity.</p>
+            </div>
+            <div class="tool-card">
+                <a href="https://termcic.github.io/BSFit/bsfit.html" target="_blank">BSFit</a>
+                <p>Analyze growth models using advanced techniques.</p>
+            </div>
+            <div class="tool-card">
+                <a href="https://termcic.github.io/diversity_index/calculate_diversity_index.html"
+                    target="_blank">Diversity Index Calculator</a>
+                <p>Calculate diversity using Shannon-Wiener indices.</p>
+            </div>
+            <div class="tool-card">
+                <a href="https://termcic.github.io/LifeBootstrapper/life_table_calculator.html" target="_blank">Life
+                    Table Calculator</a>
+                <p>Analyze population dynamics using life tables.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="container">
+        <h2>Publications</h2>
+
+        <h3>Journal Articles</h3>
         <table>
-            <!-- Organized by year, starting from the latest -->
-            <tr>
-                <td>
-                    <strong>2024</strong>
-                    <ul>
-                        <li>Chun-I Chiu, Hou-Feng Li. Challenges in baiting to manage fungus-growing termite colonies. <i>Journal of Economic Entomology</i>. Early Access. (<a href="https://doi.org/10.1093/jee/toae276" target="_blank">DOI</a>)</li>
-                        <li>Chun-I Chiu, Korrawat Attasopa, et al. Three‐layered functionally specialized nest structures enhance strength and water retention in mounds of <i>Globitermes sulphureus</i>. <i>Environmental Entomology</i> 53(6): 935–945. (Scopus: Q1)</li>
-                        <li>Wen-Jun Lin, Chun-I Chiu, et al. Divergent effects of climatic factors on termite body size: alate versus worker castes. <i>Environmental Entomology</i> 53(6): 1157–1168. (<a href="https://doi.org/10.1093/ee/nvae088" target="_blank">DOI</a>)</li>
-                        <li>Milan C. Samarakoon, Chun-I Chiu, et al. <i>Ophiocordyceps taiwanensis</i> sp. nov. on <i>Odontotermes formosanus</i>. <i>Phytotaxa</i> 660: 097–111. (IF: 1.19, Q2)</li>
-                        <li>Naphacharakorn Ta-Phaisach, Chun-I Chiu, et al. Quantitative identification and sensor sensitivity analysis in detection of volatile compounds from <i>Suidasia pontifica</i>. <i>Pest Management Science</i>. Online First. (<a href="https://doi.org/10.1002/ps.8132" target="_blank">DOI</a>, IF: 4.1, Q1)</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>2023</strong>
-                    <ul>
-                        <li>Chatchaton Wanthathaen, Chun-I Chiu, et al. Desiccation tolerance of <i>Termitidae</i> termites in relation to nest type. <i>Environmental Entomology</i> 52: 555-564. (IF: 1.7, Q2)</li>
-                        <li>Chiu, Chun-I, et al. Body size of fungus-growing termites infers the volume and density of fungal cultivars. <i>Royal Society Open Science</i> 10: 230126. (Scopus: Q1)</li>
-                        <li>Huang, Shih-Ying, Chun-I Chiu, et al. Nationwide termite pest survey conducted in Taiwan as a citizen science project. <i>Journal of Economic Entomology</i>. (<a href="https://doi.org/10.1093/jee/toac122" target="_blank">DOI</a>, IF: 2.381, Q1)</li>
-                    </ul>
-                </td>
-            </tr>
-            <!-- Add additional years as necessary -->
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 2024 Articles -->
+                <tr>
+                    <td>2024</td>
+                    <td>
+                        <ul>
+                            <li>Chun-I Chiu, Hou-Feng Li. Challenges in baiting to manage fungus-growing termite
+                                colonies. <i>Journal of Economic Entomology</i>. Early Access. (<a
+                                    href="https://doi.org/10.1093/jee/toae276" target="_blank">DOI</a>)</li>
+                            <li>Chun-I Chiu, Korrawat Attasopa, Sinsap Wongkoon, Yupa Chromkaew, Hauchuan Liao,
+                                Kuan-Chih Kuan, Piyawan Suttiprapan, Ikhsan Guswenrivo, Hou-Feng Li, Yuwatida Sripontan.
+                                Three‐layered functionally specialized nest structures enhance strength and water
+                                retention in mounds of <i>Globitermes sulphureus</i>. <i>Environmental Entomology</i>
+                                53(6): 935–945. (Scopus: Q1)</li>
+                            <li>Wen-Jun Lin, Chun-I Chiu, Hou-Feng Li. Divergent effects of climatic factors on termite
+                                body size: alate versus worker castes. <i>Environmental Entomology</i> 53(6): 1157–1168.
+                                (<a href="https://doi.org/10.1093/ee/nvae088" target="_blank">DOI</a>) (Scopus: Q1)</li>
+                            <li>Milan C. Samarakoon, Kun-Chin Hsu, Chun I Chiu, Chi-Yu Chen, Hou-Feng Li, Sukanya
+                                Haituk. <i>Ophiocordyceps taiwanensis</i> sp. nov. (Ophiocordycipitaceae, Hypocreales)
+                                on <i>Odontotermes formosanus</i> (Termitidae, Blattodea). <i>Phytotaxa</i> 660:
+                                097–111. (IF: 1.19, Scopus: Q2)</li>
+                            <li>Piyawan Suttiprapan, Patcharin Krutmuang, Chun-I Chiu, Sarayut Pittarate, Theerapan
+                                Dokjan, Vinodhini Thiyagaraja, Nakarin Suwannarach, Nittaya Nokham, Weeyawat Jaitrong,
+                                Parin Jirapatrasilp, Natdanai Likhitrakarn. The diversity of subterranean Dorylus ants
+                                in the agricultural regions of northern Thailand. <i>Tropical Natural History</i> 24:
+                                115-127. (Scopus: Q3)</li>
+                            <li>Naphacharakorn Ta-Phaisach, Ploychompoo Konvipasruang, Korrawat Attasopa, Korawan
+                                Sringarm, Chun-I Chiu, Yaowaluk Chanbang. Quantitative identification and sensor
+                                sensitivity analysis in detection of odor volatile compounds emitted by scaly grain
+                                mites, <i>Suidasia pontifica</i> Oudemans. <i>Pest Management Science</i>. Online
+                                published first. (<a href="https://doi.org/10.1002/ps.8132" target="_blank">DOI</a>, IF:
+                                4.1, Co-corresponding author, Scopus: Q1)</li>
+                            <li>Theerapan Dokjan, Wesley J. Bicha, Piyawan Suttiprapan, Bajaree Chuttong, Chun-I Chiu,
+                                Kittipat Aupalee, Atiporn Saeung, Chayanit Surin, Wichai Srisuka. Biodiversity and
+                                spatiotemporal variations of Mecoptera in Thailand: influences of elevation and climatic
+                                factors. <i>Insects</i> 15(3):151. (IF: 3.14, Scopus: Q1)</li>
+                            <li>Yuwatida Sripontan, Chatchaton Wanthathaen, Chun-I Chiu. Fitness consequences of
+                                intraguild predation between <i>Spodoptera frugiperda</i> (Lepidoptera: Noctuidae) and
+                                <i>Ostrinia furnacalis</i> (Lepidoptera: Crambidae). <i>Journal of Economic
+                                    Entomology</i> 117(1):145-155. (Corresponding author, IF: 2.23, Scopus: Q1)
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2023 Articles -->
+                <tr>
+                    <td>2023</td>
+                    <td>
+                        <ul>
+                            <li>Naphacharakorn Ta-Phaisach, Ploychompoo Konvipasruang, Korawan Sringarm, Chun-I Chiu,
+                                Korrawat Attasopa, Yaowaluk Chanbang. A survey of mites (Acari) infesting stored animal
+                                feed products in northern Thailand, with a key for their identification. <i>Systematic &
+                                    Applied Acarology</i> 28(10): 1579-1596. (IF: 1.73, Scopus: Q1)</li>
+                            <li>Apichaya Jakkoksung, Korrawat Attasopa, Chun-I Chiu, Yaowaluk Chanbang. Life cycle and
+                                damage patterns of tea mosquito bug (<i>Helopeltis theivora</i> Waterhouse), a newly
+                                recorded pest on Arabica coffee in Northern Thailand. <i>Chiang Mai Journal of
+                                    Science</i> 50(5): 1-10. (IF: 0.523, Scopus: Q4)</li>
+                            <li>Chatchaton Wanthathaen, Chun-I Chiu, Ming-Chih Chiu, Suchart Leelayouthyotin, Patcharin
+                                Krutmuang, Hou-Feng Li, Yuwatida Sripontan. Desiccation tolerance of <i>Termitidae</i>
+                                termites in relation to their nest type. <i>Environmental Entomology</i> 52: 555-564.
+                                (IF: 1.7, Scopus: Q2)</li>
+                            <li>Chiu, Chun-I, Jie Hou Ou, Chi Yu Chen, Hou Feng Li, Kuan Chi Kuan, Yin Tse Huang,
+                                Yuwatida Sripontan. Body size of fungus-growing termites infers the volume and density
+                                of their fungal cultivar. <i>Royal Society Open Science</i> 10: 230126. (Scopus: Q1)
+                            </li>
+                            <li>Chatchaton Wanthathaen, Yuwatida Sripontan, Chun-I Chiu. Seasonal foraging activity and
+                                composition of termites in an urban-forest mosaic. <i>Khon Kaen Agriculture Journal</i>
+                                51: 400-414.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2022 Articles -->
+                <tr>
+                    <td>2022</td>
+                    <td>
+                        <ul>
+                            <li>Huang, Shih-Ying, Chun-I Chiu, et al. Nationwide termite pest survey conducted in Taiwan
+                                as a citizen science project. <i>Journal of Economic Entomology</i>. (<a
+                                    href="https://doi.org/10.1093/jee/toac122" target="_blank">DOI</a>, SCI, IF: 2.381,
+                                Q1)</li>
+                            <li>Chiu, C.-I., B.-Y. Chen, F.-C. Chang, K.-C. Kuan, and H.-F. Li. Functional plasticity of
+                                foraging shelter tubes built by termites. <i>Environmental Entomology</i>. (<a
+                                    href="https://doi.org/10.1093/ee/nvac054" target="_blank">DOI</a>, IF: 2.377, Q1)
+                            </li>
+                            <li>Sripontan, Y., C.-I. Chiu, et al. Host selection of the tobacco whitefly Bemisia tabaci
+                                among four pepper cultivars in Thailand. <i>Khon Kaen Agriculture Journal</i> 50:
+                                899-909.</li>
+                            <li>Chiu, C.-I., et al. Area‐population control of fungus‐growing termite, Odontotermes
+                                formosanus, using hexaflumuron durable baits. <i>Pest Management Science</i> 78:
+                                104-115. (<a href="https://doi.org/10.1002/ps.8132" target="_blank">DOI</a>, Refereed,
+                                SCI, IF: 4.845, Q1)</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2021 Articles -->
+                <tr>
+                    <td>2021</td>
+                    <td>
+                        <ul>
+                            <li>Lin, W.-J., G.-Y. Chen, Chun-I Chiu, et al. Damage and reinvasion of Asian subterranean
+                                termite on trees: a case study of luchu pine in Xiaping Tropical Botanical Garden.
+                                <i>Journal of Experimental Forest of National Taiwan University</i> 35: 49-60. (in
+                                Chinese)
+                            </li>
+                            <li>Chiu, C.-I., A. J. Mullins, et al. Termite salinity tolerance and potential for
+                                transoceanic dispersal through rafting. <i>Ecological Entomology</i> 46(1): 106-116.
+                                (SCI, IF: 2.465, Q1)</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2020 Articles -->
+                <tr>
+                    <td>2020</td>
+                    <td>
+                        <ul>
+                            <li>Kuan, K.-C., Chun-I Chiu, et al. Termite’s twisted mandible presents fast, powerful, and
+                                precise strikes. <i>Scientific Reports</i> 10: 9462. (<a
+                                    href="https://doi.org/10.1038/s41598-020-63400-6" target="_blank">DOI</a>, SCI, IF:
+                                4.380, Q1)</li>
+                            <li>Sripontan, Y., C.-I Chiu, et al. Modeling the growth of black soldier fly Hermetia
+                                illucens: an approach to evaluate diet quality. <i>Journal of Economic Entomology</i>
+                                113: 742-751. (SCI, IF: 2.381, Q1)</li>
+                            <li>Kanzaki, N., W.-R. Liang, C.-I Chiu, et al. Acrostichus ziaelasin sp. nov. isolated from
+                                the beetle Ziaelas formosanus. <i>Zoologischer Anzeiger</i> 286: 20-30. (SCI, IF: 1.521,
+                                Q2)</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2019 Articles -->
+                <tr>
+                    <td>2019</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I., Jie Hou Ou, et al. Fungal nutrition allocation enhances mutualism with
+                                fungus-growing termite. <i>Fungal Ecology</i> 41: 92-100. (<a
+                                    href="https://doi.org/10.1016/j.funeco.2019.03.001" target="_blank">DOI</a>, SCI,
+                                IF: 3.404, Q1)</li>
+                            <li>Chiu, C.-I, Y.-H. Chuang, et al. Surveying the invasive termite, Coptotermes gestroi, in
+                                different altitudes of Taiwan. <i>Journal of Experimental Forest of National Taiwan
+                                    University</i> 33: 11-20. (in Chinese)</li>
+                            <li>Kanzaki, N., W.-R. Liang, C.-I Chiu, et al. Nematode-free agricultural system of a
+                                fungus-growing termite. <i>Scientific Reports</i> 9: 8917. (<a
+                                    href="https://doi.org/10.1038/s41598-019-45323-4" target="_blank">DOI</a>, SCI, IF:
+                                4.380, Q1)</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2018 Articles -->
+                <tr>
+                    <td>2018</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, J.-H. Ou, et al. Foraging phenology of the fungus-growing termite
+                                Odontotermes formosanus. <i>Environmental Entomology</i> 47: 1509-1516. (SCI, IF: 2.377,
+                                Q2)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2017 Articles -->
+                <tr>
+                    <td>2017</td>
+                    <td>
+                        <ul>
+                            <li>Sripontan, Y., T. Juntavimon, S. Songin, and C.-I. Chiu. Egg-trapping of black soldier
+                                fly, Hermetia illucens, with various wastes and the effects of environmental factors on
+                                egg-laying. <i>Khon Kaen Agriculture Journal</i> 45: 179-184.</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2016 Articles -->
+                <tr>
+                    <td>2016</td>
+                    <td>
+                        <ul>
+                            <li>Li, H.-F., H.-T. Yeh, C.-I. Chiu, et al. Vertical distribution of termites on trees in
+                                two forest landscapes in Taiwan. <i>Environmental Entomology</i> 45: 557-581. (SCI, IF:
+                                2.377, Q2)</li>
+                            <li>Chiu, C.-I., H.-T. Yeh, M.-J. Tsai, and H.-F. Li. Naturalization and control of
+                                Coptotermes gestroi in a Taiwanese forest. <i>Journal of Economic Entomology</i> 109:
+                                1317-1325. (SCI, IF: 2.381, Q1)</li>
+                            <li>Chiu, C.-I., M.-M. Yang, and H.-F. Li. Redescription of the soil-feeding termite
+                                Sinocapritermes mushae: the first step of genus revision. <i>Annals of the Entomological
+                                    Society of America</i> 109: 158-167. (SCI, IF: 2.099, Q2)</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2015 Articles -->
+                <tr>
+                    <td>2015</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I., H.-T. Yeh, M.-J. Tsai, and H.-F. Li. Termite survey of Zelkova serrata
+                                plantations in moderate and low altitude areas of Taiwan. <i>Journal of Experimental
+                                    Forest of National Taiwan University</i> 29: 69-77. (in Chinese)</li>
+                            <li>Chiu, C.-I., H.-F. Li, and M.-M. Yang. Structure and function of subterranean gallery
+                                systems of soil-feeding termites Pericapritermes nitobei and Sinocapritermes mushae.
+                                <i>Insectes Sociaux</i> 62: 393-400. (SCI, IF: 1.643, Q2)
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- 2010 Articles -->
+                <tr>
+                    <td>2010</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I., H.-F. Li, and M.-M. Yang. The geographical distribution and the dispersal
+                                flight season of Odontotermes formosanus in Taiwan. <i>Formosan Entomologist</i> 30:
+                                193-202. (in Chinese)</li>
+                        </ul>
+                    </td>
+                </tr>
+
+            </tbody>
         </table>
-    
-        <h2>Oral and Poster Presentations</h2>
+
+        <h3>Oral and Poster Presentations</h3>
         <table>
-            <tr>
-                <td>
-                    <strong>2024</strong>
-                    <ul>
-                        <li>Tzu-Chia Liu, Kuan-Chih Kuan, Chun-I Chiu, et al. Twisting tale of termite’s elastic mandible form and function. The 15th Pacific Rim Termite Research Group Conference. March 12-13, Philippines.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>2023</strong>
-                    <ul>
-                        <li>Sinsap Wongkoon, Chun-I Chiu, et al. Biodiversity of termites in protected areas at Chiang Mai University Hariphunchai Centre. The 14th Pacific Rim Termite Research Group Conference. March 2, Bangkok.</li>
-                        <li>Chatchaton Wanthathaen, Chun-I Chiu, et al. The desiccation tolerance of termite communities in urban areas. The 14th Pacific Rim Termite Research Group Conference. March 2, Bangkok.</li>
-                    </ul>
-                </td>
-            </tr>
-            <!-- Add additional years as necessary -->
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 2024 Presentations -->
+                <tr>
+                    <td>2024</td>
+                    <td>
+                        <ul>
+                            <li>Tzu-Chia Liu, Kuan-Chih Kuan, Chun-I Chiu, Hou-Feng Li, Kai-Jung Chi. Twisting tale of
+                                termite’s elastic mandible form and function. The 15th Conference of Pacific Rim Termite
+                                Research Group. March 12-13, Philippines.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2023 Presentations -->
+                <tr>
+                    <td>2023</td>
+                    <td>
+                        <ul>
+                            <li>Sinsap Wongkoon, Piyawan Suttiprapan, Chun-I Chiu. Biodiversity of termites in protected
+                                areas at Chiang Mai University Hariphunchai Centre, Lamphun Province. The 14th
+                                Conference of Pacific Rim Termite Research Group. March 2, Bangkok.</li>
+                            <li>Chia-Chien Wu, Chun-I Chiu, Hou-Feng Li, Hsin-Ting Yeh, Wei-Ren Liang. Long-term effects
+                                of baits on the foraging activity of a fungus-growing termite, Odontotermes formosanus
+                                (Blattodea: Termitidae). The 14th Conference of Pacific Rim Termite Research Group.
+                                March 2, Bangkok.</li>
+                            <li>Yi-Yu Wang, Hou-Feng Li, Kai-Jung Chi, Kuan-Chih Kuan, Tzu-Chia Liu, Chun-I Chiu.
+                                Termite's elastic mandibles: conceptual modeling for mechanics. The 14th Conference of
+                                Pacific Rim Termite Research Group. March 2, Bangkok.</li>
+                            <li>Chatchaton Wanthathaen, Yuwatida Sripontan, Chun-I Chiu. The desiccation tolerance of
+                                termite communities in urban areas. The 14th Conference of Pacific Rim Termite Research
+                                Group. March 2, Bangkok.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2021 Presentations -->
+                <tr>
+                    <td>2021</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, Y.-H. Chuang, W.-R. Liang, H.-T. Yeh, H.-Y. Yang, M.-J. Tsai, N. A. Spomer,
+                                and H.-F. Li. Application of hexaflumuron termite bait in controlling fungus-growing
+                                termites. The 42nd Annual Meeting of Taiwan Entomological Society. October 23-24, Online
+                                Meeting.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2020 Presentations -->
+                <tr>
+                    <td>2020</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, A. J. Mullins, K.-C. Kuan, M.-D. Lin, N.-Y. Su, and H.-F. Li. Termite
+                                salinity tolerance and potential for transoceanic dispersal through rafting. The 41st
+                                Annual Meeting of Taiwan Entomological Society. October 16-17, Taipei, Taiwan.</li>
+                            <li>Chiu, C.-I. Termites’ fungal cultivation as a ruminant-like digestive system. The 13th
+                                Pacific Rim Termite Research Group Conference. February 12-13, Taipei, Taiwan.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2018 Presentations -->
+                <tr>
+                    <td>2018</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, H.-T. Yeh, P.-L. Li, C.-Y. Kuo, M.-J. Tsai, and H.-F. Li. Foraging penology
+                                of the fungus-growing termite Odontotermes formosanus (Blattodea: Termitidae). The 39th
+                                Annual Meeting of Taiwan Entomological Society. October 20-21, Tainan, Taiwan.</li>
+                            <li>Chiu, C.-I and H.-F. Li. Odontotermes formosanus regulate α-amino acids and fatty acids
+                                with their symbiont fungus. The 12th Pacific Rim Termite Research Group Conference.
+                                March 21-22, Yogyakarta, Indonesia.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2017 Presentations -->
+                <tr>
+                    <td>2017</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I and H.-F. Li. Fermented products of fungus garden is the major nutrition
+                                source of Odontotermes formosanus (Isoptera: Termitidae). The 38th Annual Meeting of
+                                Taiwan Entomological Society. October 20-21, Taichung, Taiwan.</li>
+                            <li>邱俊禕、李後鋒。台灣森林有害白蟻之多樣性及防治方式。海峽兩岸植物保護博士後論壇暨青年學術研討會，福州。2017年6月25-28日。</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2016 Presentations -->
+                <tr>
+                    <td>2016</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I and H.-F. Li. Advantages of multiple kings and queens in colony-founding
+                                stage of Odontotermes formosanus (Isoptera: Termitidae). The 37th Annual Meeting of
+                                Taiwan Entomological Society. October 14-15, Taichung, Taiwan.</li>
+                            <li>Chiu, C.-I and H.-F. Li. Interspecific competition between Coptotermes gestroi and
+                                Odontotermes formosanus in a forest ecosystem. The 11th Pacific Rim Termite Research
+                                Group Conference. April 18-19, Kunming, China.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2015 Presentations -->
+                <tr>
+                    <td>2015</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, H.-T. Yeh, M.-J. Tsai and H.-F. Li. Resource competition between endemic and
+                                invasive termites in forest. The 36th Annual Meeting of Taiwan Entomological Society.
+                                October 30-31, Taichung, Taiwan.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2014 Presentations -->
+                <tr>
+                    <td>2014</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, H.-T. Yeh, M.-J. Tsai and H.-F. Li. Monitoring Asian subterranean termite
+                                (Coptotermes gestroi) colony activity in forest. The 35th Annual Meeting of Taiwan
+                                Entomological Society. October 18-19, Taipei, Taiwan.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2013 Presentations -->
+                <tr>
+                    <td>2013</td>
+                    <td>
+                        <ul>
+                            <li>H.-T. Yeh, H.-F. Li, M.-J. Tsai, C.-I. Chiu, and Y.-N. Wang. Surveying termite damage
+                                patterns and control methods in tropical botanical gardens of Taiwan. The 34th Annual
+                                Meeting of Taiwan Entomological Society. October 25-26, Nantou, Taiwan.</li>
+                            <li>Li H.-F., M.-J. Tsai, C.-I. Chiu, and H.-T. Yeh. Termite monitoring methods for
+                                protecting valuable trees. The 6th Conference of Forest Management of China and Taiwan.
+                                July 30-31, Taichung, Taiwan.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2012 Presentations -->
+                <tr>
+                    <td>2012</td>
+                    <td>
+                        <ul>
+                            <li>邱俊禕、楊曼妙、李後鋒。新渡戶歪白蟻與粗長毛禾根棉蚜共居：偶然或必然? 第33屆台灣昆蟲學會年會，屏東。2012年10月26-27日。</li>
+                            <li>邱俊禕、李後鋒、楊曼妙。兩種地下食土白蟻：新渡戶歪白蟻與台華歪白蟻（等翅目：白蟻科）生態區位之差異。2012年動物行為、生態與全球變遷研討會，台北，2012年1月17-18日。
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2011 Presentations -->
+                <tr>
+                    <td>2011</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, H.-F. Li, and M.-M. Yang. Nest structure and caste distribution of
+                                Pericapritermes nitobei (Isoptera: Termitidae). The 32nd Annual Meeting of Taiwan
+                                Entomological Society. October 28-29, Taichung, Taiwan.</li>
+                            <li>Chiu, C.-I and M.-M. Yang. Feces-using microbes in Coptotermes formosanus. Symposium on
+                                Animal Behavior, Ecology and Biology. January 17-18, Tainan, Taiwan.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- 2009 Presentations -->
+                <tr>
+                    <td>2009</td>
+                    <td>
+                        <ul>
+                            <li>Chiu, C.-I, H.-F. Li, and M.-M. Yang. Geographical distribution and dispersal flight
+                                season of Odontotermes formosanus in Taiwan. The 30th Annual Meeting of Taiwan
+                                Entomological Society. October 9-11, Taipei, Taiwan.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </section>
-    
+
+
+    <footer>
+        <p>&copy; 2025 Dr. Chun-I Chiu | <a href="mailto:tim77918@msn.com">tim77918@msn.com</a></p>
+    </footer>
 </body>
 
 </html>
